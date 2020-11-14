@@ -1,7 +1,10 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 //Route::group(['prefix' => 'v1' , 'middleware'=> 'auth:api'], function () {
 Route::group(['prefix' => 'v1'], function () {
-    Route::get('/get-trips', '');
+    Route::get('/get-available-trips', [BookingController::class,'getBusFilters']);
 
 });

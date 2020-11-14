@@ -10,4 +10,11 @@ class Destination extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function routesFrom(){
+        return $this->belongsTo('App\Models\Route','from');
+    }
+    public function routesTo(){
+        return $this->belongsTo('App\Models\Route','to');
+    }
 }

@@ -26,4 +26,5 @@ class Route extends Model
     {
         return $this->belongsToMany('App\Models\Trip', 'trip_route');
     }
+
 }
