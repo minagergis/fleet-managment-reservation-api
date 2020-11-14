@@ -27,4 +27,8 @@ class Route extends Model
         return $this->belongsToMany('App\Models\Trip', 'trip_route');
     }
 
+    public function seats(){
+        return $this->hasMany('App\Models\Seat');
+    }
+
 }

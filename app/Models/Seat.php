@@ -16,4 +16,9 @@ class Seat extends Model
         return $this->belongsTo('App\Models\Bus');
 
     }
+
+    public function route()
+    {
+        return $this->belongsTo('App\Models\Route');
+    }
 }

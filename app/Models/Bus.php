@@ -28,11 +28,13 @@ class Bus extends Model
         foreach ($this->trip->routes as $route){
 
             $busData['routes'][] =[
+                'route_id' => $route->id,
                 'from' =>$route->from()->select('name')->first()->name,
                 'from_id' => $route->from,
                 'to' => $route->to()->select('name')->first()->name,
                 'to_id' => $route->to,
-                'cost' => $route->cost
+                'cost' => $route->cost,
+                'available_seats' => 12 - $route->seats->count()
             ];
         }
         return (object)$busData;

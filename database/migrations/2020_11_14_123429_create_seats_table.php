@@ -17,6 +17,7 @@ class CreateSeatsTable extends Migration
             $table->id();
             $table->string('passenger_name');
             $table->foreignId('bus_id')->constrained('buses');
+            $table->foreignId('route_id')->constrained('routes');
 
             $table->timestamps();
         });
