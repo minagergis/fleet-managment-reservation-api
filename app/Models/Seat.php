@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Seat extends Model
 {
-    use HasFactory;
 
-    protected $fillable = ['number', 'passenger_name'];
+
+    protected $fillable = ['passenger_name'];
 
     public function bus()
     {

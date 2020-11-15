@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 //Route::group(['prefix' => 'v1' , 'middleware'=> 'auth:api'], function () {
 Route::group(['prefix' => 'v1'], function () {
     Route::get('/get-available-trips', [BookingController::class,'getBusFilters']);
+    Route::post('/book-seat', [BookingController::class,'postReserveTicket']);
 
 });
