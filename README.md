@@ -14,9 +14,10 @@ A fleet managment restful APIs to book buses from a destination to another desti
 01. Install xampp server on your own machine
 02. Create a new database with name "robusta_1"
 03. Clone the project to your apache folder ex .htdocs
-04. To run the migrations and create the database Run command ```php artisan migrate``` or import ```robusta_v1.sql``` to PhpMyAdmin
-05. The project should be working now on ```http://localhost/fleet-managment-reservation-api/public```
-     
+04. To install the vendors Run command  ```composer update```
+05. To run the migrations and create the database Run command ```php artisan migrate``` or import ```robusta_v1.sql``` to PhpMyAdmin
+06. The project should be working now on ```http://localhost/fleet-managment-reservation-api/public```
+
 ### Docker deployment
 01. Install [docker]("https://docs.docker.com/docker-for-windows/install/") on your machine.
 02. Clone the project to your machine.
