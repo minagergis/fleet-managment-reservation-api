@@ -114,9 +114,12 @@ status : 404
 
 
 
+## Testing
+### Unit testing
+01. I wrote unit testing cases for the filter functions 
+02. to run the test cases use this command ``` php artisan test ```
 
 ## Built With
-
 * [Laravel](https://laravel.com/docs) - The web framework used
 ## Acknowledgments
 * Hat tip to anyone whose answers on stackoverflow were used

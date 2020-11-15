@@ -49,7 +49,8 @@ class BookingController extends Controller
             elseif ($requiredRoutes) {
                 $this->seatRepository->setSeatsToPassengers($requiredRoutes,$request->get('passenger_name'));
                 return response()->json(["message" => "You booked " . $request->get('seat_count') . " => Single seat cost :" . $requiredRoutes['cost_per_ticket'] . " => Total cost : " . $requiredRoutes["total_cost"]], '200');
-            } else {
+            }
+            else {
                 return response()->json(['message' => "Sorry we don't provide trips from this points / to this points"], '404');
             }
 
