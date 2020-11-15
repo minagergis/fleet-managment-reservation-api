@@ -13,12 +13,13 @@ class Route extends Model
 
     public function from()
     {
-       return $this->hasOne('App\Models\Destination','id','from');
+        return $this->hasOne('App\Models\Destination', 'id', 'from');
 
     }
+
     public function to()
     {
-        return $this->hasOne('App\Models\Destination','id','to');
+        return $this->hasOne('App\Models\Destination', 'id', 'to');
 
     }
 
@@ -27,8 +28,25 @@ class Route extends Model
         return $this->belongsToMany('App\Models\Trip', 'trip_route');
     }
 
-    public function seats(){
+    public function seats()
+    {
         return $this->hasMany('App\Models\Seat');
+    }
+
+    public function formateRouteData()
+    {
+        $routeData = [
+            'id' => $this->id,
+            'from' => $this->from,
+            'to' => $this->to,
+            'cost' => $this->cost,
+            'available_seats' => 12 - intval($this->seats->count())
+
+        ];
+
+        return (object)$routeData;
+
+
     }
 
 }

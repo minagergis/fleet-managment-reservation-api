@@ -28,7 +28,9 @@ class RouteRepository extends AppRepository implements RouteRepositoryInterface
     {
         $routes = $this->route->whereHas('trips', function ($query) use ($tripID) {
             return $query->where('trips.id', $tripID);
-        })->get();
+        })->get()->map(function (Route $route) {
+            return $route->formateRouteData();
+        });
         $bus = $this->bus->where('trip_id', $tripID)->first();
         return RouteTraverser::traverse($routes, $startPoint, $endPoint, intval($tripID), intval($seatCount),$bus->id);
 

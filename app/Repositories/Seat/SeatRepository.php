@@ -10,7 +10,7 @@ use http\Env\Request;
 class SeatRepository extends AppRepository implements SeatRepositoryInterface
 {
 
-    private $model;
+    protected $model;
 
     /**
      * SeatRepository constructor.

@@ -42,7 +42,11 @@ class BookingController extends Controller
              * get the required routes from routesRepository
              */
             $requiredRoutes = $this->routeRepository->getRoutesBetween($request->get('from'), $request->get('to'), $request->get('trip_id'), $request->get('seat_count'));
-            if ($requiredRoutes) {
+            if ($requiredRoutes == 'unavailable'){
+                return response()->json(['message' => "Sorry there is no sufficient seats on this trip"], '404');
+
+            }
+            elseif ($requiredRoutes) {
                 $this->seatRepository->setSeatsToPassengers($requiredRoutes,$request->get('passenger_name'));
                 return response()->json(["message" => "You booked " . $request->get('seat_count') . " => Single seat cost :" . $requiredRoutes['cost_per_ticket'] . " => Total cost : " . $requiredRoutes["total_cost"]], '200');
             } else {
