@@ -7,16 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bus extends Model
 {
+    /**
+     * @var array
+     */
     protected $fillable = [
         'seat_number'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function trip()
     {
         return $this->belongsTo('App\Models\Trip', 'trip_id');
 
     }
 
+    /**
+     * @return object
+     */
     public function formateBusData()
     {
         $busData = [
@@ -42,9 +51,13 @@ class Bus extends Model
 
     }
 
+    /**
+     * @param Builder $builder
+     * @param $filters
+     * @return mixed
+     */
     public function scopeFilter(Builder $builder, $filters)
     {
-
         return $filters->filter($builder);
     }
 }

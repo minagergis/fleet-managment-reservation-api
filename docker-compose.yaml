@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: ${APP_NAME}_db
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    environment:
+      MYSQL_DATABASE: 'robusta_1'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: ""
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-app
+    container_name: ${APP_NAME}_php_web
+    depends_on:
+      - db
+    ports:
+      - "8100:80"
+    tty: true
+

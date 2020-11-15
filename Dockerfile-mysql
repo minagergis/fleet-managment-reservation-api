@@ -1,0 +1,9 @@
+# Derived from official mysql image (our base image)
+FROM mysql
+# Add a database
+ENV MYSQL_DATABASE robusta_1
+# Add the content of the sql-scripts/ directory to your image
+# All scripts in docker-entrypoint-initdb.d/ are automatically
+# executed during container startup
+COPY ./robusta_1.sql  /home
+COPY ./insertion.sh /docker-entrypoint-initdb.d/
