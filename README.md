@@ -15,13 +15,13 @@ A fleet managment restful APIs to book buses from a destination to another desti
 02. Create a new database with name "robusta_1"
 03. Clone the project to your apache folder ex .htdocs
 04. To run the migrations and create the database Run command ```php artisan migrate``` or import ```robusta_v1.sql``` to PhpMyAdmin
-05. the project should be working now on ```http://localhost/fleet-managment-reservation-api/public```
+05. The project should be working now on ```http://localhost/fleet-managment-reservation-api/public```
      
 ### Docker deployment
 01. Install [docker]("https://docs.docker.com/docker-for-windows/install/") on your machine.
 02. Clone the project to your machine.
 03. Use command ``` docker-compose up -d --build ```
-04. the project should be working now on ```http://localhost:8100```
+04. The project should be working now on ```http://localhost:8100```
 
 ## Restful API services request
 
@@ -32,16 +32,16 @@ A fleet managment restful APIs to book buses from a destination to another desti
 The services is using the Restful API request.
 
 ###### Get trips By From point to point 
-* this api end-point is to get all trips from point to another point
+* This api end-point is to get all trips from point to another point
 *  Get request To [http://localhost:8100/api/v1/get-available-trips?from=Cairo&to=Suiz](http://localhost:8100/api/v1/get-available-trips?from=Cairo&to=Suiz)
-* possible payload
+* Possible payload
 ```
 ?from='' => should be an String represent destination from destination table name (optional)
 ?to='' => should be an String represent destination from destination table name (optional)
 
 ```
 
-* response should be like 
+* Response should be like 
 ```
 [
   {
@@ -81,7 +81,7 @@ The services is using the Restful API request.
 ### Post REQUEST
 ###### Matches Filter function 
 * This request make the user can book a ticket if there are available seats
-*  Post request To [http://localhost:8100/api/v1/book-seat?from=1&to=1&seat_count=1&trip_id=1&passenger_name=Mina](http://localhost:8100/api/v1/book-seat?from=1&to=1&seat_count=1&trip_id=1&passenger_name=Mina)
+* Post request To [http://localhost:8100/api/v1/book-seat?from=1&to=1&seat_count=1&trip_id=1&passenger_name=Mina](http://localhost:8100/api/v1/book-seat?from=1&to=1&seat_count=1&trip_id=1&passenger_name=Mina)
 * possible payload should be like the example below
 ```
 ?from='' => destination id (required)
@@ -90,7 +90,7 @@ The services is using the Restful API request.
 ?trip_id='' => trip ID (required)
 ?passenger_name='' => string Name (required)
 ```
-* response should be like 
+* Response should be like 
 ```
 status : 200
 [ {
